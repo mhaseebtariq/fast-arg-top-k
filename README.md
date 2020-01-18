@@ -33,16 +33,16 @@ K = 100
 def fast_arg_top_k(array):
     """
     Gets the indices of the top k values in an (1-D) array.
-    * NOTE: The returned indexes are not sorted based on the top values
+    * NOTE: The returned indices are not sorted based on the top values
     """
-    sorted_indexes = np.zeros((K,), dtype=FLOAT_TYPE)
+    sorted_indices = np.zeros((K,), dtype=FLOAT_TYPE)
     minimum_index = 0
     minimum_index_value = 0
     for value in array:
         if value > minimum_index_value:
-            sorted_indexes[minimum_index] = value
-            minimum_index = sorted_indexes.argmin()
-            minimum_index_value = sorted_indexes[minimum_index]
+            sorted_indices[minimum_index] = value
+            minimum_index = sorted_indices.argmin()
+            minimum_index_value = sorted_indices[minimum_index]
     # FLOAT_BUFFER = np.finfo(FLOAT_TYPE).resolution
     # In some situations, because of different resolution you get k-1 results - this is to avoid that!
     minimum_index_value -= FLOAT_BUFFER
