@@ -1,4 +1,4 @@
-### Get the indices of the top K values in an (1-d) array
+### Get the indices of the top K values in an (1-D) array
 The implementation uses a function compiled using Numba; and is more than <b>50x</b> faster than using numpy.argsort(...)!
 
 
@@ -31,7 +31,7 @@ K = 100
 @nb.njit(nb.types.Array(nb.int64, 1, "A")(nb.float32[:]))
 def fast_arg_top_k(array):
     """
-    Gets the indices of the top k values in an (1-d) array.
+    Gets the indices of the top k values in an (1-D) array.
     * NOTE: The returned indexes are not sorted based on the top values
     """
     sorted_indexes = np.zeros((K,), dtype=FLOAT_TYPE)
@@ -64,7 +64,7 @@ array = np.array(np.random.sample((1000000,)), dtype=FLOAT_TYPE)
 time_fast = %timeit -n 100 -o fast_arg_top_k(array)
 ```
 
-    2.08 ms ± 43.4 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    2.02 ms ± 37 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
 
 
@@ -72,7 +72,7 @@ time_fast = %timeit -n 100 -o fast_arg_top_k(array)
 time_numpy = %timeit -n 10 -o numpy_arg_top_k(array)
 ```
 
-    104 ms ± 2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+    104 ms ± 3.99 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 
 
 
