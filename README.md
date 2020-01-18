@@ -1,5 +1,6 @@
 ### Get the indices of the top K values in an (1-D) array
-The implementation uses a function compiled using Numba; and is more than <b>50x</b> faster than using numpy.argsort(...)!
+The implementation uses a function compiled using Numba; and is, in some cases, more than <b>50x</b> faster than using numpy.argsort(...)!
+* The cases where K is really small compared to the size of the array
 
 
 ```python
@@ -97,3 +98,4 @@ print(f'"fast_arg_top_k" is around {round(time_numpy.best / time_fast.best)}x fa
 ```
 
     "fast_arg_top_k" is around 50x faster than "numpy_arg_top_k"!
+
