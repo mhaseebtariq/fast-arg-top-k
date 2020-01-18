@@ -33,7 +33,7 @@ K = 100
 def fast_arg_top_k(array):
     """
     Gets the indices of the top k values in an (1-D) array.
-    * NOTE: The returned indices are not sorted based on the top values
+    * NOTE: The returned indices are not sorted based on the top values.
     """
     sorted_indices = np.zeros((K,), dtype=FLOAT_TYPE)
     minimum_index = 0
@@ -65,7 +65,7 @@ array = np.array(np.random.sample((1000000,)), dtype=FLOAT_TYPE)
 time_fast = %timeit -n 100 -o fast_arg_top_k(array)
 ```
 
-    2.02 ms ± 37 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    1.9 ms ± 88.2 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
 
 
@@ -73,7 +73,7 @@ time_fast = %timeit -n 100 -o fast_arg_top_k(array)
 time_numpy = %timeit -n 10 -o numpy_arg_top_k(array)
 ```
 
-    104 ms ± 3.99 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+    106 ms ± 3.47 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 
 
 
@@ -97,5 +97,5 @@ print(f'{percentage_of_common}% of the indices are same!')
 print(f'"fast_arg_top_k" is around {round(time_numpy.best / time_fast.best)}x faster than "numpy_arg_top_k"!')
 ```
 
-    "fast_arg_top_k" is around 50x faster than "numpy_arg_top_k"!
+    "fast_arg_top_k" is around 57x faster than "numpy_arg_top_k"!
 
